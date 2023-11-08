@@ -1,0 +1,47 @@
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/popper"></script>
+    <script src="https://unpkg.com/bootstrap"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <title>Edit Book</title>
+</head>
+<body>
+    <h1>Edit User Information</h1>
+    <form method="POST" id="user_form">
+        {{ form.hidden_tag() }}
+    
+        {% for field in form if field.widget.input_type != 'hidden' %}
+        {% for error in field.errors %}
+        <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+        {{ field(placeholder=field.label.text, class="form-control") }}
+        {% endfor %}
+        <button class="btn btn-primary btn-block btn-lg">Edit</button>
+    </form>
+    <!-- <form method="POST" action="{{ url_for('edit') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            <label for="username">Username:</label>
+            {{ form.username() }}
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            {{ form.password() }}
+        </div>
+        <div>
+            <input type="submit" value="Update Profile">
+        </div>
+    </form> -->
+</body>
+</html>

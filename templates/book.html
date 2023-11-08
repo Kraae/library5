@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/popper"></script>
+    <script src="https://unpkg.com/bootstrap"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <title>Book Details</title>
+</head>
+<body>
+    <h1>Book Details</h1>
+    <a href="/">Back to Homepage</a>
+    
+    <p><strong>Thumbnail:</strong><br>
+    <img src="{{ book['imageLinks']['thumbnail'] }}" alt="{{ book['title'] }}">
+    </p>
+
+    <h2>{{ book['title'] }}</h2>
+    <p><strong>Author:</strong> {{ book['author'] }}</p>
+    <p><strong>Description:</strong> {{ book['description'] }}</p>
+    
+    <p><strong>Categories:</strong>
+    <ul>
+        {% for category in book['categories'] %}
+            <li>{{ category }}</li>
+        {% endfor %}
+    </ul>
+    </p>
+    
+    
+</body>
+</html>

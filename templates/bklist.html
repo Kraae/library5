@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/popper"></script>
+    <script src="https://unpkg.com/bootstrap"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <title>My Favorite Books</title>
+</head>
+<body>
+    <h1>My Favorite Books</h1>
+    <ul>
+        {% for book in books %}
+            <li>
+                <a href="/book">{{ book.title }} by {{ book.author }}</a>
+                
+                <a href="/add_book">Add a Book</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+   
+    <main>
+        <section>
+            <h2>List of Favorite Books</h2>
+            <ul id="mylibrary">
+                <!-- Dynamically populate this list with favorite books -->
+                <li>
+                    <a href="/book/1">Book Title 1</a>
+                    <button onclick="removeFromFavorites(1)">Remove from Favorites</button>
+                </li>
+                <li>
+                    <a href="/book/2">Book Title 2</a>
+                    <button onclick="removeFromFavorites(2)">Remove from Favorites</button>
+                </li>
+                <!-- Add more items dynamically using JavaScript -->
+            </ul>
+        </section>
+    </main>
+
+
+    
+    <!-- <h1>My Bookshelf</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Description</th>
+                <th>Subjects</th>
+                <th>Thumbnail</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.description }}</td>
+                    <td>{{ book.subjects }}</td>
+                    <td><img src="{{ book.thumbnail_url }}" alt="Thumbnail"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> -->
+   
+
+    <a href="{{ url_for('logout') }}">Logout</a>
